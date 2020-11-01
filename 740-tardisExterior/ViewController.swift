@@ -4,6 +4,7 @@
 //
 //  Created by Rachel Saunders on 31/10/2020.
 //
+// This app is made as part of a module for my Masters Degree. All programming is done by Rachel Saunders using 3D assets by Tom Saunders with permission.
 
 import UIKit
 import SceneKit
@@ -11,64 +12,106 @@ import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
+    //MARK:- OUTLETS
     @IBOutlet var sceneView: ARSCNView!
     
+    @IBOutlet weak var label: UILabel!
+    
+    @IBOutlet weak var toast: UIVisualEffectView!
+    
+    //MARK:- VARS
+    
+    var tardisbox = Tardis()
+    
+    //MARK:- VIEWDIDLOAD
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
         
-        // Set the view's delegate
         sceneView.delegate = self
         
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        sceneView.scene = tardisbox
         
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
         
-        // Set the scene to the view
-        sceneView.scene = scene
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    //MARK:- VIEWDIDAPPEAR
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
+        guard ARWorldTrackingConfiguration.isSupported else {
+            fatalError("Sorry! But your phone cannot go into time and space!")
+        }
+        
+        UIApplication.shared.isIdleTimerDisabled = true
 
-        // Run the view's session
-        sceneView.session.run(configuration)
+        startNewSession()
     }
     
+    //MARK:- VIEWWILLDISAPPEAR
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        // Pause the view's session
         sceneView.session.pause()
     }
+    
+    func startNewSession(){
+        
+        self.toast.alpha = 0
+        self.toast.frame = self.toast.frame.insetBy(dx: 5, dy: 5)
+        
+        
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = .horizontal
+        
+        sceneView.session.run(configuration, options: [.removeExistingAnchors, .resetTracking])
+    }
+    
+    //    MARK:- CAMERA TRACKING STATES
+    
+    func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
+        
+        // SWITCH CASE TO DO ABOUT MESSAGES TOAST WILL SAY
+        var message: String? = nil
+        
+        switch camera.trackingState {
+        case .notAvailable:
+            message = "tracking not available"
+        case .limited(.initializing):
+            message = "Initialising AR..."
+        case .limited(.excessiveMotion):
+            message = "Stop moving!"
+        case .limited(.insufficientFeatures):
+            message = "Not enough surface details"
+        case .normal:
+            // To do
+            print("you need to complete this Rach!")
+        default:
+            message = "Camera changed tracking state"
+            
+        }
+        
+        message != nil ? showToast(message!) : hideToast()
+    }
+}
 
-    // MARK: - ARSCNViewDelegate
+//MARK:- TOAST SETTINGS
+
+extension ViewController {
     
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
-    }
-*/
-    
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
+    func showToast(_ text: String) {
+        label.text = text
         
+        guard toast.alpha == 0 else {
+            return
+        }
     }
     
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
+    func hideToast() {
+        UIView.animate(withDuration: 0.25) {
+            self.toast.alpha = 0
+        }
+
     }
     
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
-    }
 }

@@ -1,37 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="au3-ii-RXk">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tXr-a1-R10">
+        <!--Main-->
+        <scene sceneID="6NG-Uq-aXy">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="U0K-SW-4ec">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <tapGestureRecognizer id="Pp8-jP-IbM"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="PUJ-2H-RNO"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t5Z-ge-kYj" sceneMemberID="firstResponder"/>
+                <viewController title="Main" id="au3-ii-RXk" customClass="ViewController" customModule="_40_tardisExterior" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ThV-So-Lns"/>
+                        <viewControllerLayoutGuide type="bottom" id="uko-Oq-s5Y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E7b-7e-hdJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xV6-2b-tKX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Pp8-jP-IbM" appends="YES" id="xdt-V4-q0O"/>
+                                    <outletCollection property="gestureRecognizers" destination="PUJ-2H-RNO" appends="YES" id="brQ-f6-aKo"/>
+                                </connections>
                             </arscnView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lwC-il-9JY">
+                                <rect key="frame" x="57" y="782" width="300" height="30"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="C4u-SJ-AlI">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZV-Nv-vEv">
+                                            <rect key="frame" x="129" y="4.5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.1554286859" green="0.1554286859" blue="0.1554286859" alpha="0.74780607880000005" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="iZV-Nv-vEv" firstAttribute="centerY" secondItem="C4u-SJ-AlI" secondAttribute="centerY" id="78p-4E-hZk"/>
+                                        <constraint firstItem="iZV-Nv-vEv" firstAttribute="centerX" secondItem="C4u-SJ-AlI" secondAttribute="centerX" id="UJb-7m-uC3"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Xyh-WF-S4B"/>
+                                    <constraint firstAttribute="height" constant="30" id="siz-KI-w6k"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="UkF-1K-qHA"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
+                            <constraint firstItem="xV6-2b-tKX" firstAttribute="centerY" secondItem="E7b-7e-hdJ" secondAttribute="centerY" id="AcM-ag-TaY"/>
+                            <constraint firstItem="lwC-il-9JY" firstAttribute="centerX" secondItem="E7b-7e-hdJ" secondAttribute="centerX" id="GEE-Jr-OST"/>
+                            <constraint firstItem="uko-Oq-s5Y" firstAttribute="top" secondItem="lwC-il-9JY" secondAttribute="bottom" constant="50" id="J6W-YU-nTc"/>
+                            <constraint firstItem="xV6-2b-tKX" firstAttribute="centerX" secondItem="E7b-7e-hdJ" secondAttribute="centerX" id="YXf-xW-5QT"/>
+                            <constraint firstItem="xV6-2b-tKX" firstAttribute="height" secondItem="E7b-7e-hdJ" secondAttribute="height" id="jer-qx-9mg"/>
+                            <constraint firstItem="xV6-2b-tKX" firstAttribute="width" secondItem="E7b-7e-hdJ" secondAttribute="width" id="w2a-jo-mL6"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>
                     <connections>
-                        <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
+                        <outlet property="label" destination="iZV-Nv-vEv" id="bFK-tt-Njj"/>
+                        <outlet property="sceneView" destination="xV6-2b-tKX" id="Oiu-2J-UBv"/>
+                        <outlet property="toast" destination="lwC-il-9JY" id="A6f-rY-8Ph"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="141.59999999999999" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>
