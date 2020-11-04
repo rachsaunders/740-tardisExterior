@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="au3-ii-RXk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="au3-ii-RXk">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Main-->
         <scene sceneID="6NG-Uq-aXy">
             <objects>
-                <tapGestureRecognizer id="Pp8-jP-IbM"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="PUJ-2H-RNO"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="t5Z-ge-kYj" sceneMemberID="firstResponder"/>
                 <viewController title="Main" id="au3-ii-RXk" customClass="ViewController" customModule="_40_tardisExterior" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ThV-So-Lns"/>
@@ -24,9 +20,10 @@
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xV6-2b-tKX">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Pp8-jP-IbM" appends="YES" id="xdt-V4-q0O"/>
                                     <outletCollection property="gestureRecognizers" destination="PUJ-2H-RNO" appends="YES" id="brQ-f6-aKo"/>
+                                    <outletCollection property="gestureRecognizers" destination="Pp8-jP-IbM" appends="YES" id="xdt-V4-q0O"/>
                                 </connections>
                             </arscnView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lwC-il-9JY">
@@ -54,7 +51,6 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="UkF-1K-qHA"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xV6-2b-tKX" firstAttribute="centerY" secondItem="E7b-7e-hdJ" secondAttribute="centerY" id="AcM-ag-TaY"/>
@@ -71,6 +67,17 @@
                         <outlet property="toast" destination="lwC-il-9JY" id="A6f-rY-8Ph"/>
                     </connections>
                 </viewController>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="PUJ-2H-RNO">
+                    <connections>
+                        <action selector="didPan:" destination="au3-ii-RXk" id="gjY-r6-Y8t"/>
+                    </connections>
+                </panGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t5Z-ge-kYj" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Pp8-jP-IbM">
+                    <connections>
+                        <action selector="didTap:" destination="au3-ii-RXk" id="szs-Ka-Lxd"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="141.59999999999999" y="138.98050974512745"/>
         </scene>

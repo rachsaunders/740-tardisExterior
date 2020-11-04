@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		185E1848254F4E2200D4A134 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E1847254F4E2100D4A134 /* Extensions.swift */; };
 		18A48F1E254EFEF900B02FE3 /* Tardis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A48F1D254EFEF900B02FE3 /* Tardis.swift */; };
 		18E5FE1F254D7831008BB871 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5FE1E254D7831008BB871 /* AppDelegate.swift */; };
 		18E5FE21254D7832008BB871 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 18E5FE20254D7832008BB871 /* art.scnassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		185E1847254F4E2100D4A134 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		18A48F1D254EFEF900B02FE3 /* Tardis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tardis.swift; sourceTree = "<group>"; };
 		18E5FE1B254D7831008BB871 /* 740-tardisExterior.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "740-tardisExterior.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18E5FE1E254D7831008BB871 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				18E5FE20254D7832008BB871 /* art.scnassets */,
 				18E5FE22254D7832008BB871 /* ViewController.swift */,
 				18A48F1D254EFEF900B02FE3 /* Tardis.swift */,
+				185E1847254F4E2100D4A134 /* Extensions.swift */,
 				18E5FE24254D7832008BB871 /* Main.storyboard */,
 				18E5FE27254D7833008BB871 /* Assets.xcassets */,
 				18E5FE29254D7833008BB871 /* LaunchScreen.storyboard */,
@@ -265,6 +268,7 @@
 				18E5FE23254D7832008BB871 /* ViewController.swift in Sources */,
 				18E5FE1F254D7831008BB871 /* AppDelegate.swift in Sources */,
 				18A48F1E254EFEF900B02FE3 /* Tardis.swift in Sources */,
+				185E1848254F4E2200D4A134 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
