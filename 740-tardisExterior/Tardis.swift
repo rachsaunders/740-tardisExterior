@@ -15,7 +15,6 @@ class TardisBox: SCNScene {
     // Special nodes used to control animations of the model
     private let contentRootNode = SCNNode()
     private var geometryRoot: SCNNode!
-    private var jaw: SCNNode!
     private var skin: SCNMaterial!
     
     // Animations
@@ -137,7 +136,7 @@ extension TardisBox {
     
     private func activateCamouflage(_ activate: Bool) {
         
-        let blendFactor = activate ? 1.0 : 0.0
+   
         
         SCNTransaction.begin()
         SCNTransaction.animationDuration = 1.5
@@ -154,7 +153,7 @@ extension TardisBox {
     }
     
     private func getColorFromEnvironment(sceneView: ARSCNView) {
-        let worldPos = sceneView.projectPoint(contentRootNode.worldPosition)
+        _ = sceneView.projectPoint(contentRootNode.worldPosition)
         
         
     }
